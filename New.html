@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>Çilek Havuz - Header</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font: Inter -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  />
+
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <style>
+    :root {
+      --black: #000000ff;
+      --dim-grey: #66666eff;
+      --rosy-granite: #9999a1ff;
+      --alabaster-grey: #e6e6e9ff;
+      --platinum: #f4f4f6ff;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    main {
+      scroll-snap-type: y mandatory;
+      scroll-padding-top: 4rem;
+    }
+
+    section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+  </style>
+</head>
+<body class="bg-[#020617] text-slate-100">
+
+  <!-- HEADER -->
+  <header class="w-full bg-[#0B1120] border-b border-slate-800 sticky top-0 z-50">
+    <div class="relative max-w-full mx-auto px-3 py-3 md:px-4 md:py-4">
+      <!-- Mobile layout -->
+      <div class="flex md:hidden items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <div class="flex items-center justify-center w-8 h-8 rounded-full border border-slate-600/60 bg-[#020617]/70">
+            <i class="fa-solid fa-water text-sky-300 text-sm"></i>
+          </div>
+          <div>
+            <p class="text-base font-extrabold tracking-wide uppercase text-white leading-tight">ÇİLEK HAVUZ</p>
+            <p class="text-[9px] tracking-[0.2em] text-slate-300 uppercase">HAMAM | SAUNA | SPA</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="rounded-xl border border-slate-600/70 px-2.5 py-1.5 text-xs uppercase tracking-[0.2em] text-slate-100 hover:bg-slate-900 transition-colors"
+          aria-label="Open navigation menu"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile contact bar -->
+      <div class="flex md:hidden items-center justify-between px-1 py-2 border-t border-slate-700/50">
+        <span class="text-xs uppercase tracking-[0.3em] text-[var(--alabaster-grey)]">CALL NOW</span>
+        <a href="tel:+902164753937" class="text-sm font-semibold text-white hover:text-sky-300 transition-colors">
+          +90 216 475 39 37
+        </a>
+      </div>
+
+      <!-- Desktop layout -->
+      <div class="hidden md:flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-600/60 bg-[#020617]/70">
+            <i class="fa-solid fa-water text-sky-300 text-lg"></i>
+          </div>
+          <div>
+            <p class="text-xl font-extrabold tracking-wide uppercase text-white leading-tight">ÇİLEK HAVUZ</p>
+            <p class="text-[11px] tracking-[0.25em] text-slate-300 uppercase">HAMAM | SAUNA | SPA</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-1">
+          <span class="text-xs uppercase tracking-[0.4em] text-[var(--alabaster-grey)]">Call Now</span>
+          <a href="tel:+902164753937" class="text-base font-semibold text-white hover:text-sky-300 transition-colors">
+            +90 216 475 39 37
+          </a>
+        </div>
+
+        <button
+          type="button"
+          class="rounded-2xl border border-slate-600/70 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-100 hover:bg-slate-900 transition-colors"
+          aria-label="Open navigation menu"
+        >
+          Menu
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative w-full">
+    <!-- HERO -->
+    <section class="snap-start relative overflow-hidden bg-[#020617] min-h-screen">
+      <!-- Background & overlay -->
+      <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center"
+        aria-hidden="true"
+      ></div>
+      <div class="absolute inset-0 bg-black/80"></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-5xl mx-auto px-3 py-12 md:px-4 md:py-24 text-center flex flex-col items-center justify-center gap-4 md:gap-8 h-full">
+        <p class="text-[var(--alabaster-grey)] uppercase tracking-[0.35em] text-xs md:text-sm">
+          GAS MASKS &amp; RESPIRATORS
+        </p>
+        <h1 class="text-xl md:text-3xl lg:text-5xl font-extrabold uppercase text-[var(--platinum)] leading-tight">
+          Protection you can rely on to keep your crew ready
+        </h1>
+        <p class="max-w-3xl text-[var(--alabaster-grey)] text-sm md:text-base lg:text-lg leading-relaxed px-2">
+          Parcil Safety gear is engineered for blacksmiths who live for the forge. CE-certified, lab-tested, and backed by a one-year warranty, our equipment delivers
+          30-day returns, U.S.-based support, and resilience for the job site. When the sparks fly, you never compromise on protection.
+        </p>
+        <button
+          class="w-4/5 md:w-auto inline-flex items-center justify-center rounded-full bg-[var(--black)] text-[var(--alabaster-grey)] uppercase tracking-[0.3em] px-6 md:px-10 py-2.5 md:py-3 text-xs md:text-sm font-semibold hover:bg-white hover:text-[var(--black)] transition-colors active:scale-95"
+        >
+          Shop Gas Mask Now
+        </button>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="snap-start bg-[#020617] flex items-center justify-center min-h-screen px-3 py-10 md:py-16">
+      <div class="w-full max-w-6xl">
+        <div class="bg-[var(--platinum)] border border-[var(--rosy-granite)] rounded-xl md:rounded-2xl shadow-xl shadow-black/30">
+          <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[var(--rosy-granite)]">
+            <div class="flex flex-col items-center gap-1.5 px-2 md:px-6 py-4 md:py-6 text-center">
+              <i class="fa-solid fa-shield text-[var(--black)] text-2xl md:text-3xl"></i>
+              <p class="text-xs md:text-sm uppercase text-[var(--dim-grey)] tracking-[0.2em] md:tracking-[0.3em]">Guarantee</p>
+              <p class="text-xs md:text-base font-bold uppercase text-[var(--black)]">Satisfaction</p>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 px-2 md:px-6 py-4 md:py-6 text-center">
+              <i class="fa-solid fa-truck-fast text-[var(--dim-grey)] text-2xl md:text-3xl"></i>
+              <p class="text-xs md:text-sm uppercase text-[var(--dim-grey)] tracking-[0.2em] md:tracking-[0.3em]">Delivery</p>
+              <p class="text-xs md:text-base font-bold uppercase text-[var(--black)]">Fast Shipping</p>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 px-2 md:px-6 py-4 md:py-6 text-center">
+              <i class="fa-solid fa-calendar-days text-[var(--black)] text-2xl md:text-3xl"></i>
+              <p class="text-xs md:text-sm uppercase text-[var(--dim-grey)] tracking-[0.2em] md:tracking-[0.3em]">Returns</p>
+              <p class="text-xs md:text-base font-bold uppercase text-[var(--black)]">30-Day</p>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 px-2 md:px-6 py-4 md:py-6 text-center">
+              <i class="fa-solid fa-hands-holding-shield text-[var(--dim-grey)] text-2xl md:text-3xl"></i>
+              <p class="text-xs md:text-sm uppercase text-[var(--dim-grey)] tracking-[0.2em] md:tracking-[0.3em]">Coverage</p>
+              <p class="text-xs md:text-base font-bold uppercase text-[var(--black)]">1-Year Warranty</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
