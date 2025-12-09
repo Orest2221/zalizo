@@ -2437,7 +2437,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Захисне антикорозійне покриття</span></div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Точний професійний монтаж</span></div>
                         </div>
-                        <button class="service-card-button">Безкоштовна консультація</button>
+                        <button class="service-card-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Безкоштовна консультація</button>
                     </div>
                 </div>
 
@@ -2451,7 +2451,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Індивідуальний художній дизайн</span></div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Сертифікований рівень безпеки</span></div>
                         </div>
-                        <button class="service-card-button">Безкоштовна консультація</button>
+                        <button class="service-card-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Безкоштовна консультація</button>
                     </div>
                 </div>
 
@@ -2465,7 +2465,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Високоміцні каркаси та кріплення</span></div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Дизайн, узгоджений з архітектурою</span></div>
                         </div>
-                        <button class="service-card-button">Безкоштовна консультація</button>
+                        <button class="service-card-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Безкоштовна консультація</button>
                     </div>
                 </div>
 
@@ -2479,7 +2479,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Точне ручне виготовлення</span></div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Преміальні матеріали та фініші</span></div>
                         </div>
-                        <button class="service-card-button">Безкоштовна консультація</button>
+                        <button class="service-card-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Безкоштовна консультація</button>
                     </div>
                 </div>
 
@@ -2493,7 +2493,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Будь-яка складність реалізації</span></div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i><span>Повний цикл: дизайн → виготовлення → монтаж</span></div>
                         </div>
-                        <button class="service-card-button">Безкоштовна консультація</button>
+                        <button class="service-card-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Безкоштовна консультація</button>
                     </div>
                 </div>
             </div>
@@ -2942,12 +2942,13 @@
             window.open(whatsappLink, '_blank');
         }
 
-        // Auto-show popup when user scrolls to "Why Choose Us" section
+        // Auto-show popup when user scrolls to "Why Choose Us" section OR Contact section
         document.addEventListener('DOMContentLoaded', function() {
-            let popupShownOnce = false;
+            let popupShownForWhyChoose = false;
+            let popupShownForContact = false;
             
             const whyChooseSection = document.querySelector('.why-choose-section');
-            if (!whyChooseSection) return;
+            const contactSection = document.querySelector('.contact-section');
             
             const observerOptions = {
                 threshold: 0.3 // Trigger when 30% of section is visible
@@ -2955,12 +2956,14 @@
             
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && !popupShownOnce) {
-                        // Show popup automatically
+                    if (entry.isIntersecting) {
                         const popup = document.getElementById('chatPopup');
-                        if (popup) {
+                        if (!popup) return;
+                        
+                        // Show popup for "Why Choose Us" section (only once)
+                        if (entry.target === whyChooseSection && !popupShownForWhyChoose) {
                             popup.classList.add('show');
-                            popupShownOnce = true;
+                            popupShownForWhyChoose = true;
                             // Auto-close after 8 seconds if user doesn't interact
                             setTimeout(() => {
                                 if (popup.classList.contains('show')) {
@@ -2968,11 +2971,24 @@
                                 }
                             }, 8000);
                         }
+                        
+                        // Show popup again for Contact section (even if closed before)
+                        if (entry.target === contactSection) {
+                            popup.classList.add('show');
+                            popupShownForContact = true;
+                            // Auto-close after 10 seconds for contact section
+                            setTimeout(() => {
+                                if (popup.classList.contains('show')) {
+                                    closeChatPopup();
+                                }
+                            }, 10000);
+                        }
                     }
                 });
             }, observerOptions);
             
-            sectionObserver.observe(whyChooseSection);
+            if (whyChooseSection) sectionObserver.observe(whyChooseSection);
+            if (contactSection) sectionObserver.observe(contactSection);
         });
 
         // Close popup when clicking outside (but not on the button itself)
